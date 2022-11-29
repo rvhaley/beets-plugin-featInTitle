@@ -37,15 +37,15 @@ class ftInTitle(BeetsPlugin):
                 return re.split('[fF]t\.|[fF]eaturing|[fF]eat\.|\b[wW]ith\b|&', titleField)
             # feat is already in title only replace artistfield
             def write_artist_field_only_and_print_edited_file_loc(track,albumArtist,sortArtist):
-                print track.__getattr__("path")
-                print "new artist field",albumArtist.strip()
+                print(track.__getattr__("path"))
+                print("new artist field",albumArtist.strip())
                 track["artist"] = albumArtist
                 track["artist_sort"] = rewrite_sort_artist(sortArtist)
                 track.write()
             # write a new title and a new artistfield.
             def write_artist_and_title_field_and_print_edited_file_loc(track,albumArtist,titleField,featuringPartofArtistField,sortArtist):
-                print track.__getattr__("path")
-                print "albumartist:",albumArtist," title:",titleField," featuartist:",featuringPartofArtistField
+                print(track.__getattr__("path"))
+                print("albumartist:",albumArtist," title:",titleField," featuartist:",featuringPartofArtistField)
                 track["artist"] = albumArtist
                 track["artist_sort"] = rewrite_sort_artist(sortArtist)
                 track["title"] = titleField.strip() + " feat." + featuringPartofArtistField
@@ -83,15 +83,15 @@ class ftInTitle(BeetsPlugin):
                         choose_writing_of_title_and_write(track,albumArtist,titleField,featuringPartofArtistField,sortArtist)
                                     
                     else:
-                        print "#############################"
-                        print "ftInTitle has not touched this track, unsure what to do with this one.:"
-                        print "artistfield: ",artistfield
-                        print "albumArtist",albumArtist
-                        print "titleField: ",titleField
-                        print track.__getattr__("path")
-                        print "#############################"
+                        print("#############################")
+                        print("ftInTitle has not touched this track, unsure what to do with this one.:")
+                        print("artistfield: ",artistfield)
+                        print("albumArtist",albumArtist)
+                        print("titleField: ",titleField)
+                        print(track.__getattr__("path"))
+                        print("#############################")
 
-            print "A Manual 'beet update' run is recommended. "
+            print("A Manual 'beet update' run is recommended.")
         cmd.func = func
         return [cmd]
     
