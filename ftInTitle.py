@@ -20,7 +20,8 @@ from beets import ui
 import locale
 import re
 import sys
-reload(sys)
+import importlib
+importlib.reload(sys)
 sys.setdefaultencoding("utf-8") # fixes encoding issues using a pipe
 
 
