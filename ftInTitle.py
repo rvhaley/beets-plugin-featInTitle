@@ -33,7 +33,7 @@ class ftInTitle(BeetsPlugin):
         def func(lib, opts, args):
 
             def find_supplementary_artists(artistfield):
-                return re.split('[fF]t\.|[fF]eaturing|[fF]eat\.|\b[wW]ith\b|&|vs\.|and', artistfield,
+                return re.split('[fF]t\.|[fF]eaturing|[fF]eat\.|\b[wW]ith\b|&|vs\.|and|,\s?|&', artistfield,
                                 1)  # only split on the first.
 
             def detect_If_featuring_artist_already_In_title(titleField):
@@ -110,7 +110,7 @@ class ftInTitle(BeetsPlugin):
                         print(track.__getattr__("path"))
                         print("#############################")
 
-            print("A Manual 'beet update' run is recommended.")
+            print("A manual 'beet update' run is recommended.")
 
         cmd.func = func
         return [cmd]
