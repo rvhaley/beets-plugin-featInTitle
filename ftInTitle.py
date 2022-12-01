@@ -54,7 +54,7 @@ class ftInTitle(BeetsPlugin):
                 print("albumartist:", albumArtist, " title:", titleField, " featuartist:", featuringPartofArtistField)
                 track["artist"] = albumArtist
                 track["artist_sort"] = rewrite_sort_artist(sortArtist)
-                track["title"] = titleField.strip() + " feat." + featuringPartofArtistField
+                track["title"] = titleField.strip() + " (feat." + featuringPartofArtistField + ")"
                 track.write()
 
             # split the extended artistfield in the extended part and albumartist
